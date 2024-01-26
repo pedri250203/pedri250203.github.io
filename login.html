@@ -1,60 +1,75 @@
-<html>
-<style>
-	
-table
-{
-	border: 2px solid #353A46;
-	background-color: #3ABAF1;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Importa tu archivo JavaScript -->
+    <script src="login.js"></script>
+    <style>
+        table {
+            border: 2px solid #353A46;
+            background-color: #3ABAF1;
+        }
 
-input[type=text], input[type=password]
-{
-	width: 100%;
-	padding: 8px 20px;
-	border: 2px solid #ccc;
-	box-sizing: border-box;
-}
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 8px 20px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+        }
 
-img
-{
-	width: 100px;
-	height: 100px;
-}
+        img {
+            width: 100px;
+            height: 100px;
+        }
 
-label
-{
-	font-size: 14px;
-	font-weight: bold;
-	font-family: arial;
-}
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            font-family: arial;
+        }
 
-input[type=submit]
-{
-	background-color: #1C94C8;
-	color: white;
-	padding: 8px 10px;
-	margin: 8px 0px;
-	border: solid;
-	cursor: pointer;
-	width: 40%;
-}
-
-</style>
+        input[type=submit] {
+            background-color: #1C94C8;
+            color: white;
+            padding: 8px 10px;
+            margin: 8px 0px;
+            border: solid;
+            cursor: pointer;
+            width: 40%;
+        }
+    </style>
+</head>
 <body>
-	<script src="login.js"></script>
- </body>
-<center>
-<form method="post" action="login.php">
-<table>
-	
-<tr><td colspan="2" style="background-color:#33A8DB; padding-bottom: 5px;"> <label>Login</label></td></tr>
-<tr><td align="center" rowspan="5"><img src="xd.png"></td><td><label>Usuario</label></td></tr>
-<tr><td><input type="text" name="txtusuario" id="txtusuario"/></td></tr>
-<tr><td><label>Password</label></td></tr>
-<tr><td><input type="password" name="txtpassword" id="txtpassword"/></td></tr>
-<tr><td><input type="submit" value="Ingresar"/></td></tr>
+    <center>
+        <form id="formulario-login" method="post" action="login.php">
+            <table>
+                <tr><td colspan="2" style="background-color:#33A8DB; padding-bottom: 5px;"> <label>Login</label></td></tr>
+                <tr><td align="center" rowspan="5"><img src="xd.png"></td><td><label>Usuario</label></td></tr>
+                <tr><td><input type="text" name="txtusuario" id="txtusuario"/></td></tr>
+                <tr><td><label>Password</label></td></tr>
+                <tr><td><input type="password" name="txtpassword" id="txtpassword"/></td></tr>
+                <tr><td><input type="submit" value="Ingresar"/></td></tr>
+            </table>
+        </form>
+    </center>
 
-</table>
-</form>
-</center>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Agrega un controlador de eventos al formulario
+            document.getElementById('formulario-login').addEventListener('submit', function (event) {
+                // Evita que el formulario se envíe de inmediato
+                event.preventDefault();
+
+                // Llama a la función de validación del formulario desde tu archivo JavaScript
+                validarLogin();
+            });
+
+            // Resto de tu código JavaScript...
+        });
+
+        // Funciones de validación...
+    </script>
+</body>
 </html>
