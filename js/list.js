@@ -1,18 +1,4 @@
-function getCharacters(done) {
 
-    const results = fetch("https://rickandmortyapi.com/api/character");
-    results
-        .then(response => response.json())
-        .then(data => {
-            done(data)
-        });
-    
-}
-
-getCharacters(data => {
-    console.log(data);
-});
-    
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".btn.btn-primary").addEventListener("click", event => {
         var itemList = document.getElementById("my-list");
@@ -29,3 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
         itemList.replaceChildren();
     });
 });
+
+
+function getCharacters(done) {
+
+    const results = fetch("https://rickandmortyapi.com/api/character");
+    results
+        .then(response => response.json())
+        .then(data => {
+            done(data)
+        });
+    
+}
+
+getCharacters(data => {
+    console.log(data);
+});
+    
