@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0; // Variable para rastrear el índice actual del personaje
 
+    // Función para obtener los personajes
+    function getCharacters(done) {
+        const results = fetch("https://rickandmortyapi.com/api/character");
+        results
+            .then(response => response.json())
+            .then(data => {
+                done(data);
+            });
+    }
+
     document.querySelector(".btn.btn-primary").addEventListener("click", event => {
         getCharacters(data => {
             const personaje = data.results[currentIndex];
