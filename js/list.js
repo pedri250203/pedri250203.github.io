@@ -38,7 +38,7 @@ getCharacters(data => {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".btn.btn-primary").addEventListener("click", event => {
-        var itemList = document.getElementById("my-list");
+        var itemList = document.getElementById("personaje");
         var template = document.getElementById("list-template");
         var total = itemList.childElementCount + 1;
         var clone = template.content.cloneNode(true);
