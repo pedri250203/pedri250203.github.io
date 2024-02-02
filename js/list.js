@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Llenar los campos del template con la información del personaje
                 clone.querySelector("[data-id='number']").textContent = `${total}`;
                 clone.querySelector("[data-id='title']").textContent = personaje.name;
-                clone.querySelector("[data-id='content']").textContent = `${personaje.status}, ${personaje.species}, ${personaje.image}`;
+                clone.querySelector("[data-id='content']").textContent = `${personaje.status}, ${personaje.species}`;
+                clone.querySelector("[data-id='image']").src = personaje.image;
 
                 itemList.appendChild(clone);
 
