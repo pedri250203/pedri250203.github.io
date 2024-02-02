@@ -20,9 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 const template = document.getElementById("list-template");
                 const total = itemList.childElementCount + 1;
                 const clone = template.content.cloneNode(true);
+                
+                // Llenar los campos del template con la información del personaje
                 clone.querySelector("[data-id='number']").textContent = `${total}`;
                 clone.querySelector("[data-id='title']").textContent = personaje.name;
-                clone.querySelector("[data-id='content']").textContent = personaje.status;
+                clone.querySelector("[data-id='content']").textContent = `${personaje.status}, ${personaje.species}`;
+
+                // Mostrar el id, species e image en el atributo data-* del elemento li
+                clone.querySelector("[data-id='number']").setAttribute("data-id", personaje.id);
+                clone.querySelector("[data-id='number']").setAttribute("data-species", personaje.species);
+                clone.querySelector("[data-id='number']").setAttribute("data-image", personaje.image);
+
                 itemList.appendChild(clone);
 
                 currentIndex++; // Incrementa el índice para el próximo personaje
