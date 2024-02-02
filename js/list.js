@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {  
     let currentIndex = 0; // Variable para rastrear el índice actual del personaje
 
     // Función para obtener los personajes
