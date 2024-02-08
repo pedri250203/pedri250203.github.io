@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0; // Variable para rastrear el índice actual del personaje
 
+   // Initialization for ES Users
+import { Ripple, initMDB } from "mdb-ui-kit";
+
+initMDB({ Ripple });
+    
     // Función para obtener los personajes
     function getCharacters(done) {
         const results = fetch("https://rickandmortyapi.com/api/character");
