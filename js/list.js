@@ -32,11 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-    document.querySelector(".btn.btn-light").addEventListener("click", event => {
-        var itemList = document.getElementById("personaje");
-        itemList.replaceChildren();
-        currentIndex = 0; // Reinicia el índice al principio cuando se borran todos los elementos
-    });
-});
+
 
     
