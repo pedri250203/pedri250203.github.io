@@ -11,17 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // Función para filtrar los personajes según el término de búsqueda
+    
     function filterCharacters(term, data) {
         return data.filter(personaje => personaje.name.toLowerCase().includes(term.toLowerCase()));
     }
 
     // Manejador de eventos para el botón de búsqueda
     document.getElementById("searchButton").addEventListener("click", event => {
-        const searchTerm = document.getElementById("searchInput").value.trim(); // Obtener el término de búsqueda
+        const searchTerm = document.getElementById("searchInput").value.trim(); 
         getCharacters(data => {
-            const filteredData = filterCharacters(searchTerm, data); // Filtrar los personajes
-            renderCharacters(filteredData); // Renderizar los personajes filtrados
+            const filteredData = filterCharacters(searchTerm, data); 
+            renderCharacters(filteredData); 
         });
     });
 
