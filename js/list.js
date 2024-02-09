@@ -46,4 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             itemList.appendChild(clone);
         });
     }
+      getCharacters(data => {
+        renderCharacters(data);
+    });
 });
