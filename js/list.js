@@ -1,27 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {   
+document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0; // Variable para rastrear el índice actual del personaje
 
     // Función para obtener los personajes
     function getCharacters(done) {
-        const results = fetch("https://rickandmortyapi.com/api/character");
-        results
-            .then(response => response.json())
+        const searchTerm = document.getElementById("searchInput").value.trim();
+        const apiUrl = `https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchTerm)}`;
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 done(data.results);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
             });
-    }
-
-    
-    function filterCharacters(term, data) {
-        return data.filter(personaje => personaje.name.toLowerCase().includes(term.toLowerCase()));
     }
 
     // Manejador de eventos para el botón de búsqueda
     document.getElementById("searchButton").addEventListener("click", event => {
-        const searchTerm = document.getElementById("searchInput").value.trim(); 
         getCharacters(data => {
-            const filteredData = filterCharacters(searchTerm, data); 
-            renderCharacters(filteredData); 
+            renderCharacters(data);
         });
     });
 
@@ -43,9 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
             itemList.appendChild(clone);
         });
     }
-
-    // Cargar todos los personajes al cargar la página inicialmente
-    getCharacters(data => {
-        renderCharacters(data);
-    });
 });
